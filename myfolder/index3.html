@@ -1,1 +1,97 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up and Login</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0f0f0;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Sign Up and Login</h2>
+
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="email" id="email" placeholder="Enter Email">
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <br>
+
+        <button onclick="signup()">Sign Up</button>
+        <button onclick="login()">Login</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        let savedName = "";
+        let savedEmail = "";
+        let savedPassword = "";
+
+        function signup() {
+            savedName = document.getElementById("name").value;
+            savedEmail = document.getElementById("email").value;
+            savedPassword = document.getElementById("password").value;
+
+            if (!savedName || !savedEmail || !savedPassword) {
+                document.getElementById("result").innerText =
+                    "Please fill all fields";
+                return;
+            }
+
+            document.getElementById("result").innerText =
+                "Sign Up Successful!";
+        }
+
+        function login() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (email === savedEmail &&
+                password === savedPassword &&
+                savedEmail !== "") {
+
+                document.getElementById("result").innerText =
+                    "Login Successful! Welcome " + savedName;
+
+            } else {
+                document.getElementById("result").innerText =
+                    "Invalid Login Details";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
