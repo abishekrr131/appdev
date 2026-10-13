@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Visiting Card</title>
 
+    <style>
+        input {
+            display: block;
+            margin: 10px;
+            padding: 8px;
+        }
+
+        .card {
+            display: none;
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Digital Visiting Card Generator</h2>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="text" id="phone" placeholder="Enter Phone">
+    <input type="text" id="address" placeholder="Enter Address">
+    <input type="text" id="company" placeholder="Enter Company">
+
+    <button onclick="generateCard()">Generate Card</button>
+
+    <div class="card" id="card">
+        <h2 id="cCompany"></h2>
+        <p>Name: <span id="cName"></span></p>
+        <p>Phone: <span id="cPhone"></span></p>
+        <p>Address: <span id="cAddress"></span></p>
+    </div>
+
+    <script>
+        function generateCard() {
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let address = document.getElementById("address").value;
+            let company = document.getElementById("company").value;
+
+            if (!name || !phone || !address || !company) {
+                alert("Please fill all fields");
+                return;
+            }
+
+            document.getElementById("cName").textContent = name;
+            document.getElementById("cPhone").textContent = phone;
+            document.getElementById("cAddress").textContent = address;
+            document.getElementById("cCompany").textContent = company;
+
+            document.getElementById("card").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
